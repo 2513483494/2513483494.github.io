@@ -348,6 +348,8 @@
 <link rel="stylesheet" href="/css/food.css">
 
 <div class="footer">
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
 	<div class="Copyright">
 		©2021 By XING JIA QI. 主题：<a
 			style="text-decoration: none;display: contents; color: #898F9F;"
@@ -360,6 +362,14 @@
 		</a>
 		
 	</div>
+<div id="vcomments" style={{margin:o 'auto',width:500}}></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'ILzDplESxkz91zaM1QP2wGHE-gzGzoHsz',
+            appKey: 'f0TIia4kJVeN4IrpdShFn1jq'
+        })
+    </script>
 </div>
 
 <script src="/js/jquery.min.js"></script>

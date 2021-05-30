@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>GIT常用命令 | XJQ的个人博客</title>
+  <title>前端面试问题汇总（不断更新） | XJQ的个人博客</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -173,48 +173,65 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2021-05-30T05:35:22.000Z" itemprop="datePublished">
+      <time datetime="2021-05-30T05:37:14.000Z" itemprop="datePublished">
           2021-05-30
       </time>
     
 </span>
-                <h1>GIT常用命令</h1>
+                <h1>前端面试问题汇总（不断更新）</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
-<li>首先在自己的github上建立空仓库，git clone克隆到本地用vscode打开，这是感觉最简单的本地链接远程git的方式了。</li>
-<li>常写react项目`</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create-react-app app</span><br><span class="line">cd app</span><br><span class="line">yarn start</span><br><span class="line"><span class="comment">//正常显示网页的话就可以进行开发了</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>最基本的在master上开发的话，这就差不多够用</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;fix: xxx&quot;</span></span><br><span class="line">git push origin</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>分支开发</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b <span class="keyword">new</span> <span class="comment">//创建本地分支</span></span><br><span class="line">git push origin <span class="keyword">new</span><span class="comment">//本地分支推送到远程仓库，否则远程仓库是没有的</span></span><br><span class="line">git checkout <span class="keyword">new</span><span class="comment">//切换到new分支</span></span><br><span class="line"><span class="comment">//开发完成提交代码</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;fix: xxx&quot;</span></span><br><span class="line">git push origin</span><br><span class="line"><span class="comment">//此时分支上就会有你的代码了</span></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>分支上开发完成需要合并到master</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout margin<span class="comment">//切换到master分支</span></span><br><span class="line">git merge <span class="keyword">new</span><span class="comment">//代码合并，多人开发有可能遇到冲突，需要先解决冲突</span></span><br><span class="line">git push origin master<span class="comment">//推送到远程仓库</span></span><br></pre></td></tr></table></figure>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="1-修改commit信息"><a href="#1-修改commit信息" class="headerlink" title="1.修改commit信息"></a>1.修改commit信息</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
-<p>此时会进入vim编辑界面，按i编辑好commit信息，按esc再按：wq，就好啦。</p>
-<h3 id="2-删除原仓库的部分文件"><a href="#2-删除原仓库的部分文件" class="headerlink" title="2.删除原仓库的部分文件"></a>2.删除原仓库的部分文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master<span class="comment">//拉取远程代码</span></span><br><span class="line">ls<span class="comment">//列出文件名</span></span><br><span class="line">git rm -r --cached <span class="string">&#x27;文件名&#x27;</span></span><br><span class="line">git push origin</span><br></pre></td></tr></table></figure>
+      		<h1 id="前端面试问题汇总"><a href="#前端面试问题汇总" class="headerlink" title="前端面试问题汇总"></a>前端面试问题汇总</h1><h2 id="1-判断js中对象的字节数"><a href="#1-判断js中对象的字节数" class="headerlink" title="1.判断js中对象的字节数"></a>1.判断js中对象的字节数</h2><p>第一种：<br>npm install object-sizeof<br>var sizeof = require(‘object-sizeof’) // 2B per character, 6 chars total =&gt; 12B console.log(sizeof({abc: ‘def’}))</p>
+<p>第二种：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sefaultment/p/11518625.html">https://www.cnblogs.com/sefaultment/p/11518625.html</a></p>
+<h2 id="2-js中number分浮点和整数吗？"><a href="#2-js中number分浮点和整数吗？" class="headerlink" title="2.js中number分浮点和整数吗？"></a>2.js中number分浮点和整数吗？</h2><p>不分，全是64位浮点数，单精确度（32位 1 8 32 ）、双精确度（64位 1 11 52）</p>
+<h2 id="3-js怎么打印出对象中的循环引用串"><a href="#3-js怎么打印出对象中的循环引用串" class="headerlink" title="3.js怎么打印出对象中的循环引用串"></a>3.js怎么打印出对象中的循环引用串</h2><p>一个 JSON 扩展包 做到了这一点， 使用 JSON.decycle</p>
+<h2 id="4-进程和线程的区别"><a href="#4-进程和线程的区别" class="headerlink" title="4.进程和线程的区别"></a>4.进程和线程的区别</h2><p>线程在进程下行进（单纯的车厢无法运行）<br>一个进程可以包含多个线程（一辆火车可以有多个车厢）<br>不同进程间数据很难共享（一辆火车上的乘客很难换到另外一辆火车，比如站点换乘）<br>同一进程下不同线程间数据很易共享（A车厢换到B车厢很容易）<br>进程要比线程消耗更多的计算机资源（采用多列火车相比多个车厢更耗资源）<br>进程间不会相互影响，一个线程挂掉将导致整个进程挂掉（一列火车不会影响到另外一列火车，但是如果一列火车上中间的一节车厢着火了，将影响到所有车厢）</p>
+<h2 id="5-进程线程通信方式与问题"><a href="#5-进程线程通信方式与问题" class="headerlink" title="5.进程线程通信方式与问题"></a>5.进程线程通信方式与问题</h2><p>管道：速度慢，容量有限，只有父子进程能通讯</p>
+<p>FIFO：任何进程间都能通讯，但速度慢</p>
+<p>消息队列：容量受到系统限制，且要注意第一次读的时候，要考虑上一次没有读完数据的问题</p>
+<p>信号量：不能传递复杂消息，只能用来同步</p>
+<p>共享内存区：能够很容易控制容量，速度快，但要保持同步，比如一个进程在写的时候，另一个进程要注意读写的问题，相当于线程中的线程安全，当然，共享内存区同样可以用作线程间通讯，不过没这个必要，线程间本来就已经共享了同一进程内的一块内存</p>
+<h2 id="6-宏任务微任务"><a href="#6-宏任务微任务" class="headerlink" title="6.宏任务微任务"></a>6.宏任务微任务</h2><p>宏任务：定时器<br>微任务：promise<br>先执行全局同步任务，然后执行微任务然后宏任务（有不同层级）</p>
+<h2 id="7-盒模型"><a href="#7-盒模型" class="headerlink" title="7.盒模型"></a>7.盒模型</h2><p>类型：block\inline\flex，属性：margin\border\padding\content<br>block:默认一个盒子一行，h,p等都是block盒子<br>inline：width、height不起作用，垂直边距不会把其他盒子推开，水平的会，a，em，span<br>flex：对外显示block，对内部盒子为flex类型</p>
+<p>标准盒模型：设置的宽高为content的宽高（默认）<br>IE盒模型：设置的宽高为content+padding+border通过box-sizing: border-box;转换为IE模型</p>
+<h2 id="8-隐藏元素的几种方法"><a href="#8-隐藏元素的几种方法" class="headerlink" title="8.隐藏元素的几种方法"></a>8.隐藏元素的几种方法</h2><p>overflow:hidden; /* 占据空间，无法点击 */overflow的hidden用来隐藏元素溢出部分，占据空间，无法响应点击事件</p>
+<p>opacity:0;/* 占据空间，可以点击 */透明度降为0</p>
+<p>visibility:hidden; /* 占据空间，无法点击 */隐藏元素,这个是彻底的隐藏了元素，不占据空间，也就不影响布局，当然也无法响应事件</p>
+<p>position：relative; left:-99999px; top:-90999px;/* 占据空间，无法点击 */</p>
+<p>z-index:-1000;/* 不占据空间，无法点击 */让其他元素遮挡住</p>
+<h2 id="9-rem布局"><a href="#9-rem布局" class="headerlink" title="9.rem布局"></a>9.rem布局</h2><p>根据根元素（html）字体大小，如：html的font-size=10px，2rem为20px<br>加上媒体查询@media screen and (min-width: 375px)，设置不同的font-size<br>存在的问题：人们对于文字的舒适度，字体大小大概是绝对的</p>
+<h2 id="10-BFC-不会影响外部的盒子"><a href="#10-BFC-不会影响外部的盒子" class="headerlink" title="10.BFC-不会影响外部的盒子"></a>10.BFC-不会影响外部的盒子</h2><p>产生条件：<br>body 根元素浮动元素<br>float 除 none 以外的值绝对定位元素<br>position (absolute、fixed)<br>display 为 inline-block、table-cells、flex<br>overflow 除了 visible 以外的值 (hidden、auto、scroll)</p>
+<p>产生的问题：<br>上下盒子边距会重叠，解决：变成两个BFC<br>BFC内部有浮动的盒子会高度塌陷，解决：父盒子添加overflow:hidden清除浮动</p>
+<h2 id="11-es6"><a href="#11-es6" class="headerlink" title="11.es6"></a>11.es6</h2><p>let,const,map,set,promise,箭头函数，async,await,解构，class，import from，export</p>
+<h2 id="12-箭头函数普通函数区别"><a href="#12-箭头函数普通函数区别" class="headerlink" title="12.箭头函数普通函数区别"></a>12.箭头函数普通函数区别</h2><p>this指向，不加大括号默认return，一个参数可以不加小括号，无构造函数因为没有prototype，无arguments<br>普通函数想不发生this的改变需要bind</p>
+<h2 id="13-上下文与执行栈"><a href="#13-上下文与执行栈" class="headerlink" title="13.上下文与执行栈"></a>13.上下文与执行栈</h2><p>全局上下文在栈底，每当调用一个函数就创建一个上下文入栈，函数执行完毕销毁出栈</p>
+<h2 id="14-webpack-loader和plugin的区别，分别用过哪些"><a href="#14-webpack-loader和plugin的区别，分别用过哪些" class="headerlink" title="14.webpack loader和plugin的区别，分别用过哪些"></a>14.webpack loader和plugin的区别，分别用过哪些</h2><p>loader转换指定类型的模块功能，plugins能够被用于执行更广泛的任务比如打包优化、文件管理、环境注入</p>
+<p>css-loader和style-loader模块是为了打包css的，less-loader</p>
+<p>babel-loader和babel-core模块时为了把ES6的代码转成ES5</p>
+<p>url-loader和file-loader是把图片进行打包的</p>
+<h2 id="15-模块化"><a href="#15-模块化" class="headerlink" title="15.模块化"></a>15.模块化</h2><p>es6，import，export，每个文件就是一个模块</p>
+<h2 id="16-代码规范：eslint"><a href="#16-代码规范：eslint" class="headerlink" title="16.代码规范：eslint"></a>16.代码规范：eslint</h2><h2 id="17-http与https"><a href="#17-http与https" class="headerlink" title="17.http与https"></a>17.http与https</h2><p>http2（80）：</p>
+<p>二进制保存信息，为将来的高级应用打好基础，因为可以定义其他类型的帧</p>
+<p>多工：客户端，服务器可以同时发送多个数据请求或回应</p>
+<p>头部信息压缩，速度更快</p>
+<p>服务器主动推送，发现网页中需要的资源，主动推送</p>
+<p>明文传输，不加验证，无状态，超文本传输协议</p>
+<p>http3：协议改成了udp，但是开发人员加入了自己做的层加强了传输的可靠性，速度更快，延迟更低</p>
+<p>https（443）：</p>
+<p>多了一层tsl、ssl加密（对称加密，非对称加密），ssl加密传输协议</p>
+<h2 id="18-网络安全"><a href="#18-网络安全" class="headerlink" title="18.网络安全"></a>18.网络安全</h2><p>xss,csrf攻击？<br>中间人攻击？<br>如何防御？</p>
+<h2 id="19-状态管理的几种方法"><a href="#19-状态管理的几种方法" class="headerlink" title="19.状态管理的几种方法"></a>19.状态管理的几种方法</h2><p>redux，hooks，xstate，mobx等</p>
+<h2 id="20-水平垂直居中（宽高未知）"><a href="#20-水平垂直居中（宽高未知）" class="headerlink" title="20.水平垂直居中（宽高未知）"></a>20.水平垂直居中（宽高未知）</h2><p>flex<br>transform</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2021/05/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB%EF%BC%88%E4%B8%8D%E6%96%AD%E6%9B%B4%E6%96%B0%EF%BC%89/" style="float: left;">
-        ← 前端面试问题汇总（不断更新）
-    </a>
     
-    
-    <a class="pull-right" href="/2021/05/30/react%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/">
-        react项目问题 →
+    <a class="pull-right" href="/2021/05/30/GIT%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+        GIT常用命令 →
     </a>
     
 </nav>

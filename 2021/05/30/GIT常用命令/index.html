@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>XJQ的个人博客</title>
+  <title>GIT常用命令 | XJQ的个人博客</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -167,161 +167,107 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/2.jpeg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>欢迎来到XJQ的个人博客。</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>NO PAINS NO GAINS.</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-<!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2021/05/30/GIT常用命令/">GIT常用命令</a></h3>
-                    <span>
-                        <span class="post-meta">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
       <time datetime="2021-05-30T05:35:22.000Z" itemprop="datePublished">
           2021-05-30
       </time>
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        常用命令
-首先在自己的github上建立空仓库，git clone克隆到本地用vscode打开，这是感觉最简单的本地链接远程git的方式了。
-常写react项目`
-
-1234create-react-app appcd appyarn start//正常显示网页的话就可以进行开发了
-
-最基本的在master上开发的话，这就差不多够用
-
-123git add .git commit -m &quot;fix: xxx&quot;git p
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2021/05/30/GIT常用命令/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>GIT常用命令</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2021/05/30/react项目问题/">react项目问题</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2021-05-30T05:25:25.000Z" itemprop="datePublished">
-          2021-05-30
-      </time>
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
+<li>首先在自己的github上建立空仓库，git clone克隆到本地用vscode打开，这是感觉最简单的本地链接远程git的方式了。</li>
+<li>常写react项目`</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create-react-app app</span><br><span class="line">cd app</span><br><span class="line">yarn start</span><br><span class="line"><span class="comment">//正常显示网页的话就可以进行开发了</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>最基本的在master上开发的话，这就差不多够用</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;fix: xxx&quot;</span></span><br><span class="line">git push origin</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>分支开发</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b <span class="keyword">new</span> <span class="comment">//创建本地分支</span></span><br><span class="line">git push origin <span class="keyword">new</span><span class="comment">//本地分支推送到远程仓库，否则远程仓库是没有的</span></span><br><span class="line">git checkout <span class="keyword">new</span><span class="comment">//切换到new分支</span></span><br><span class="line"><span class="comment">//开发完成提交代码</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;fix: xxx&quot;</span></span><br><span class="line">git push origin</span><br><span class="line"><span class="comment">//此时分支上就会有你的代码了</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>分支上开发完成需要合并到master</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout margin<span class="comment">//切换到master分支</span></span><br><span class="line">git merge <span class="keyword">new</span><span class="comment">//代码合并，多人开发有可能遇到冲突，需要先解决冲突</span></span><br><span class="line">git push origin master<span class="comment">//推送到远程仓库</span></span><br></pre></td></tr></table></figure>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="1-修改commit信息"><a href="#1-修改commit信息" class="headerlink" title="1.修改commit信息"></a>1.修改commit信息</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+<p>此时会进入vim编辑界面，按i编辑好commit信息，按esc再按：wq，就好啦。</p>
+<h3 id="2-删除原仓库的部分文件"><a href="#2-删除原仓库的部分文件" class="headerlink" title="2.删除原仓库的部分文件"></a>2.删除原仓库的部分文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master<span class="comment">//拉取远程代码</span></span><br><span class="line">ls<span class="comment">//列出文件名</span></span><br><span class="line">git rm -r --cached <span class="string">&#x27;文件名&#x27;</span></span><br><span class="line">git push origin</span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        一. react项目关于antd表单数据填充问题（包括hooks问题）问题的出现在用react函数组件时，我想像form表单中填充选中项的信息，想实现如下图，点击修改会自动填充核心代码如下：
-123456789const form = formRef.current // 使用 getFieldsValue 获取多个字段值         if (form) &#123;            form.setFieldsValue(&
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2021/05/30/react项目问题/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2021/05/29/mac搭建个人博客/">mac搭建个人博客(hexo+git)</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2021-05-29T13:13:48.000Z" itemprop="datePublished">
-          2021-05-29
-      </time>
     
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        mac搭建个人博客（hexo+git）1.基本环境要求有git，node。
-2.开始搭建
-在git上新建一个仓库，名为xxx.github.io，xxx是你github名字不能出错
-打开终端输入 npm install -g hexo-cli
-创建存储博客文章的文件夹（随便哪里你能找到就行），在该目录下打开终端
-初始化hexo init
-启动本地服务hexo s # 也可是 hexo server
-关联到git，打开存储博客文章的文件夹
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2021/05/29/mac搭建个人博客/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <nav class="pagination" role="pagination">
-          
-          
-        </nav>
+    <a class="pull-right" href="/2021/05/30/react%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/">
+        react项目问题 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>要努力加油哦，未来的路还很远。</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->

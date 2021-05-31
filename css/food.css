@@ -75,5 +75,9 @@
         left: 30px;
         top: 470px;
     }
+    .footer .Copyright {
+        position: relative;
+        top: 470px;
+    }
 }
 

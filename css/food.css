@@ -68,12 +68,13 @@
     }
     .footer .comments{
         position: relative;
-        top: 500px;
+        top: 1650px;
     }
     .footer .num{
         position: relative;
         left: 30px;
-        top: 470px;
+        top: -2260px;
+        z-index: 999;
     }
     .footer .Copyright {
         position: relative;

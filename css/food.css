@@ -55,7 +55,7 @@
         flex-direction: column-reverse
     }
     .footer .Copyright {
-        margin: auto
+        display: none;
     }
     .footer .contact {
         margin: auto;
@@ -76,9 +76,6 @@
         top: -2260px;
         z-index: 999;
     }
-    .footer .Copyright {
-        position: relative;
-        top: 470px;
-    }
+    
 }
 

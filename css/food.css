@@ -58,17 +58,14 @@
         display: none;
     }
     .footer .contact {
-        margin: auto;
-        flex-wrap: wrap;
-        position: relative;
-        top: 290px;
+        display: none;
     }
     .footer .contact a {
         margin-bottom: 10px
     }
     .footer .comments{
         position: relative;
-        top: 1650px;
+        top: 1740px;
     }
     .footer .num{
         position: relative;

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>Eslint问题解决方案-UESTC</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/7.jpeg">
+
+
+<meta name="keywords" content="前端,typescript,react,Eslint,">
+<meta name="description" content="解决ts-react-Eslint问题">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+<!-- Baidu Analytics -->
+<script defer>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?175a1ef42c309512ca85728cd51d4bee";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+	<meta name="generator" content="Hexo 5.4.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/7.jpeg" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										首页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										总计
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友情链接
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于作者
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>XING JIA QI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">总计</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友情链接</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于作者</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/2513483494/">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+
+<div class="header-bg bg-content-img">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/前端">前端</a></li>
+            
+            <li><a href="/tags/typescript">typescript</a></li>
+            
+            <li><a href="/tags/react">react</a></li>
+            
+            <li><a href="/tags/Eslint">Eslint</a></li>
+            
+            
+        </ul>
+        <h1>Eslint问题解决方案</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                    <path
+                        d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                        p-id="2902" fill="#ffffff"></path>
+                </svg>
+                
+                <span> <a href="">XING JIA QI</a></span>
+                <p>2021-06-10 10:37:51</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="Eslint30条规则问题解决方案-ts-react-native"><a href="#Eslint30条规则问题解决方案-ts-react-native" class="headerlink" title="Eslint30条规则问题解决方案(ts+react-native)"></a>Eslint30条规则问题解决方案(ts+react-native)</h1><p>eslint规范目前是前端团队写代码，一个很好的规范，开发项目时，大家都遵守该规范，对以后项目代码的维护与可读性有极大的好处，本文讲一下博主遇到的各类Eslint问题与相应的解决方案。</p>
+<h2 id="1-react-destructuring-assignment-解构"><a href="#1-react-destructuring-assignment-解构" class="headerlink" title="1. react/destructuring-assignment(解构)"></a>1. react/destructuring-assignment(解构)</h2><p>这条规则需要用解构的方法取值，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> name = <span class="hljs-built_in">this</span>.props.name<br></code></pre></td></tr></table></figure>
+<p>需要修改成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123;name&#125; = <span class="hljs-built_in">this</span>.props<br></code></pre></td></tr></table></figure>
+<h2 id="2-no-unused-vars-无用的定义"><a href="#2-no-unused-vars-无用的定义" class="headerlink" title="2.no-unused-vars(无用的定义)"></a>2.no-unused-vars(无用的定义)</h2><p>确定无用可以删除</p>
+<h2 id="3-react-native-no-inline-styles-不许有行内样式"><a href="#3-react-native-no-inline-styles-不许有行内样式" class="headerlink" title="3.react-native/no-inline-styles(不许有行内样式)"></a>3.react-native/no-inline-styles(不许有行内样式)</h2><p>如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&#123;&#123;color:</span> &#x27;<span class="hljs-attr">red</span>&#x27;&#125;&#125;&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>类似这种有行内样式的地方需要修改，可以这样改：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> spanStyle=&#123;<span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;red&#x27;</span>&#125;<br>...<br>&lt;span style=&#123;spanStyle&#125;&gt;hello&lt;/span&gt;<br></code></pre></td></tr></table></figure>
+<p>或者在react-native中这样修改</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; StyleSheet &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@mrn/react-native&#x27;</span><br><span class="hljs-keyword">const</span> styles = StyleSheet.create(&#123;<br>    <span class="hljs-attr">spanStyle</span>: &#123;<br>    	<span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;red&#x27;</span><br>    &#125;<br>&#125;)<br>...<br>&lt;span style=&#123;styles.spanStyle&#125;&gt;hello&lt;/span&gt;<br></code></pre></td></tr></table></figure>
+<h2 id="4-object-curly-newline"><a href="#4-object-curly-newline" class="headerlink" title="4.object-curly-newline"></a>4.object-curly-newline</h2><p>该规则需要在某些地方新加空行，比如文件的末尾需要有空行，import的最后需要有空行，加上就好</p>
+<h2 id="5-typescript-eslint-camelcase’-‘error’"><a href="#5-typescript-eslint-camelcase’-‘error’" class="headerlink" title="5.@typescript-eslint/camelcase’: ‘error’,"></a>5.@typescript-eslint/camelcase’: ‘error’,</h2><p>该规则需要使用驼峰命名法，一般发生在有这样命名变量的文件中，比如命名为<code>card-name</code>需要改成<code>cardName</code><br>但是，一定要注意，项目中有一些和后端对齐的参数也是用a-b的方式命名，比如已经统一好对接的参数是<code>param-id</code>,你修改成<code>paramId</code>可就麻烦了，请求不到后端的数据造成bug，会挨骂的<br>所以这种时候怎么解决呢？加单引号包裹<code>&#39;param-id&#39;</code>就ok<br>还有一种情况，data.param-id怎么处理呢，我也是想了好多办法，<code>data[param-id]</code>,<code>data[&#39;param-id&#39;]</code>都行不通，没办法，禁用一下规则吧eslint ignore nextline,不要乱用规则禁用哦，用的多了也会挨骂</p>
+<h2 id="6-typescript-eslint-member-delimiter-style’-‘error’"><a href="#6-typescript-eslint-member-delimiter-style’-‘error’" class="headerlink" title="6.@typescript-eslint/member-delimiter-style’: ‘error’,"></a>6.@typescript-eslint/member-delimiter-style’: ‘error’,</h2><p>一般是某个地方少加了最后的’:’或者’,’添加上就好了</p>
+<h2 id="7-react-native-no-unused-styles’-‘error’"><a href="#7-react-native-no-unused-styles’-‘error’" class="headerlink" title="7.react-native/no-unused-styles’: ‘error’,"></a>7.react-native/no-unused-styles’: ‘error’,</h2><p>该规则检测出没用到的style，直接删除即可</p>
+<h2 id="8-react-jsx-closing-tag-location’-‘error’"><a href="#8-react-jsx-closing-tag-location’-‘error’" class="headerlink" title="8.react/jsx-closing-tag-location’: ‘error’,"></a>8.react/jsx-closing-tag-location’: ‘error’,</h2><p>该规则需要标签首尾对齐，多发生在三元表达式中，因为？和：影响布局，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br><span class="hljs-keyword">const</span> state = condition ? &lt;div&gt;<br>		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>x<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br>		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>x<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br>	&lt;div&gt; : &lt;div&gt;<br>		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>y<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br>		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>y<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br>	&lt;div&gt;<br><span class="hljs-comment">//after</span><br><span class="hljs-keyword">const</span> state = condition ? (<br>	&lt;div&gt;<br>		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>x<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br>		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>x<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br>	&lt;div&gt;) : (<br>	&lt;div&gt;<br>		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>y<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br>		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>y<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br>	&lt;div&gt;)<br></code></pre></td></tr></table></figure>
+<p>总之，我遇到的大多数情况都是通过加()解决排版问题，只要让标签首尾对齐就ok</p>
+<h2 id="9-consistent-return’-‘error’"><a href="#9-consistent-return’-‘error’" class="headerlink" title="9.consistent-return’: ‘error’,"></a>9.consistent-return’: ‘error’,</h2><p>需要有返回值，如果是在map函数中，没有返回值，可以考虑改成forEach，如果是在函数中可以考虑加兜底返回，比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">return</span> <span class="hljs-literal">null</span><br><span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span><br><span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
+<h2 id="10-react-jsx-curly-spacing’-‘error’"><a href="#10-react-jsx-curly-spacing’-‘error’" class="headerlink" title="10.react/jsx-curly-spacing’: ‘error’,"></a>10.react/jsx-curly-spacing’: ‘error’,</h2><p>该规则一般发生在括号附近，把括号加上就好，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br><span class="hljs-keyword">const</span> &#123;a&#125; = props<br><span class="hljs-comment">//after</span><br><span class="hljs-keyword">const</span> &#123; a &#125; = props<br></code></pre></td></tr></table></figure>
+<h2 id="11-react-jsx-no-bind’-‘error’"><a href="#11-react-jsx-no-bind’-‘error’" class="headerlink" title="11.react/jsx-no-bind’: ‘error’,"></a>11.react/jsx-no-bind’: ‘error’,</h2><p>不允许用bind，该类规则改动很复杂，需要与项目负责人协商是否改动</p>
+<h2 id="12-no-multi-spaces’-‘error’"><a href="#12-no-multi-spaces’-‘error’" class="headerlink" title="12.no-multi-spaces’: ‘error’,"></a>12.no-multi-spaces’: ‘error’,</h2><p>不允许无用的多余的空格，按照提示删除即可</p>
+<h2 id="13-react-jsx-props-no-multi-spaces’-‘error’"><a href="#13-react-jsx-props-no-multi-spaces’-‘error’" class="headerlink" title="13.react/jsx-props-no-multi-spaces’: ‘error’,"></a>13.react/jsx-props-no-multi-spaces’: ‘error’,</h2><p>不允许无用的多余的空格，按照提示删除即可</p>
+<h2 id="14-import-no-cycle’-‘error’"><a href="#14-import-no-cycle’-‘error’" class="headerlink" title="14.import/no-cycle’: ‘error’,"></a>14.import/no-cycle’: ‘error’,</h2><p>该规则禁止循环引用，如a文件引用了b文件的模块，b文件也引入了a文件的模块，这是很不好的，但是该类规则改动很复杂，需要与项目负责人协商是否改动</p>
+<h2 id="15-no-mixed-operators’-‘error’"><a href="#15-no-mixed-operators’-‘error’" class="headerlink" title="15.no-mixed-operators’: ‘error’,"></a>15.no-mixed-operators’: ‘error’,</h2><p>不可混用操作符，一般发生在&amp;&amp;和||附近，如:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br>data &amp;&amp; data.mccConfigVOList || []<br><span class="hljs-comment">//after</span><br>(data &amp;&amp; data.mccConfigVOList) || []<br></code></pre></td></tr></table></figure>
+<p>改动方法一般是把与操作符两边加上小括号</p>
+<h2 id="16-no-shadow’-‘error’"><a href="#16-no-shadow’-‘error’" class="headerlink" title="16.no-shadow’: ‘error’,"></a>16.no-shadow’: ‘error’,</h2><p>该类错误意思是上方定义过这个名字的变量，希望你重新命名，为了更好的维护代码，否则过后看这项目的代码，很多相同命名的变量会看哭的</p>
+<h2 id="17-typescript-eslint-indent’-‘error’"><a href="#17-typescript-eslint-indent’-‘error’" class="headerlink" title="17.@typescript-eslint/indent’: ‘error’,"></a>17.@typescript-eslint/indent’: ‘error’,</h2><p>缩进问题，按照提示改就好</p>
+<h2 id="18-react-jsx-closing-bracket-location’-‘error’"><a href="#18-react-jsx-closing-bracket-location’-‘error’" class="headerlink" title="18.react/jsx-closing-bracket-location’: ‘error’,"></a>18.react/jsx-closing-bracket-location’: ‘error’,</h2><p>标签对齐问题，看代码就懂了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br>&lt;Say<br>  firstName=<span class="hljs-string">&quot;John&quot;</span><br>  lastName=<span class="hljs-string">&quot;Smith&quot;</span><br>  &gt;<br>  Hello<br>&lt;/Say&gt;<br><span class="hljs-comment">//after</span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Say</span></span></span><br><span class="hljs-tag"><span class="xml">  <span class="hljs-attr">firstName</span>=<span class="hljs-string">&quot;John&quot;</span></span></span><br><span class="hljs-tag"><span class="xml">  <span class="hljs-attr">lastName</span>=<span class="hljs-string">&quot;Smith&quot;</span></span></span><br><span class="hljs-tag"><span class="xml">&gt;</span></span><br><span class="xml">  Hello</span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">Say</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h2 id="19-import-order’-‘error’"><a href="#19-import-order’-‘error’" class="headerlink" title="19.import/order’: ‘error’,"></a>19.import/order’: ‘error’,</h2><p>import的顺序按照提示更改即可</p>
+<h2 id="20-react-jsx-indent-props’-‘error’"><a href="#20-react-jsx-indent-props’-‘error’" class="headerlink" title="20.react/jsx-indent-props’: ‘error’,"></a>20.react/jsx-indent-props’: ‘error’,</h2><p>缩进问题，按照提示改就好</p>
+<h2 id="21-typescript-eslint-restrict-plus-operands’-‘error’"><a href="#21-typescript-eslint-restrict-plus-operands’-‘error’" class="headerlink" title="21.@typescript-eslint/restrict-plus-operands’: ‘error’,"></a>21.@typescript-eslint/restrict-plus-operands’: ‘error’,</h2><p>该规则希望+左右两边是相同的类型，但是你需要确定类型是什么，然后加上强制类型转换，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br><span class="hljs-keyword">const</span> param = a + <span class="hljs-number">1</span><br><span class="hljs-comment">//after</span><br><span class="hljs-keyword">const</span> param = <span class="hljs-built_in">Number</span>(a) + <span class="hljs-number">1</span><span class="hljs-comment">//假设知道类型是nuimber</span><br><span class="hljs-keyword">const</span> param = <span class="hljs-built_in">String</span>(a) + <span class="hljs-number">1</span><span class="hljs-comment">//假设知道类型是string</span><br></code></pre></td></tr></table></figure>
+<h2 id="22-react-no-deprecated’-‘error’"><a href="#22-react-no-deprecated’-‘error’" class="headerlink" title="22.react/no-deprecated’: ‘error’,"></a>22.react/no-deprecated’: ‘error’,</h2><p>不许用已经废弃的函数、方法、组件等，一般不会出现</p>
+<h2 id="23-no-nested-ternary’-‘error’"><a href="#23-no-nested-ternary’-‘error’" class="headerlink" title="23.no-nested-ternary’: ‘error’,"></a>23.no-nested-ternary’: ‘error’,</h2><p>该规则不允许嵌套三元运算符，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br><span class="hljs-keyword">const</span> param = condition1 ? a : condition2 ? b : c<br><span class="hljs-comment">//after</span><br><span class="hljs-keyword">const</span> t = condition2 ? b : c<br><span class="hljs-keyword">const</span> param = condition ? a :t<br></code></pre></td></tr></table></figure>
+<p>改动方法就是把嵌套的部分提取出一个三元表达式，变成两个三元就ok</p>
+<h2 id="24-prefer-const’-‘error’"><a href="#24-prefer-const’-‘error’" class="headerlink" title="24.prefer-const’: ‘error’,"></a>24.prefer-const’: ‘error’,</h2><p>该规则会检测let定义的变量在项目中有没有发生过变化，若检测到没有发生过变化，eslint希望你用const定义，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br><span class="hljs-keyword">let</span> param = props.data<br><span class="hljs-comment">//after</span><br><span class="hljs-keyword">const</span> param = props.data<br></code></pre></td></tr></table></figure>
+<h2 id="25-typescript-eslint-class-name-casing’-‘error’"><a href="#25-typescript-eslint-class-name-casing’-‘error’" class="headerlink" title="25.@typescript-eslint/class-name-casing’: ‘error’,"></a>25.@typescript-eslint/class-name-casing’: ‘error’,</h2><h2 id="26-prefer-template’-‘error’"><a href="#26-prefer-template’-‘error’" class="headerlink" title="26.prefer-template’: ‘error’,"></a>26.prefer-template’: ‘error’,</h2><p>需要把字符串改成模板字符串，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br><span class="hljs-keyword">const</span> str = <span class="hljs-string">&#x27;hello&#x27;</span> + &#123;param&#125; + <span class="hljs-string">&#x27;#&#x27;</span><br><span class="hljs-comment">//after</span><br><span class="hljs-keyword">const</span> str = <span class="hljs-string">`hello<span class="hljs-subst">$&#123;param&#125;</span>#`</span><br></code></pre></td></tr></table></figure>
+<p>注意普通字符串是单引号\双引号包裹，模板字符串是反引号包裹</p>
+<h2 id="27-react-no-array-index-key’-‘error’"><a href="#27-react-no-array-index-key’-‘error’" class="headerlink" title="27.react/no-array-index-key’: ‘error’,"></a>27.react/no-array-index-key’: ‘error’,</h2><p>该规则不允许把index用作key，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br>array.map(<span class="hljs-function">(<span class="hljs-params">item,index</span>)=&gt;</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;index&#125;</span>&gt;</span>&#123;item.content&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>)<br><span class="hljs-comment">//after</span><br>array.map(<span class="hljs-function">(<span class="hljs-params">item,index</span>)=&gt;</span>&#123;<br>	<span class="hljs-keyword">const</span> uniqueKey = index<br>	<span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;unique&#125;</span>&gt;</span>&#123;item.content&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>))<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>把index提一下就好，个人感觉该规则有些鸡肋</p>
+<h2 id="28-typescript-eslint-member-ordering’-‘error’"><a href="#28-typescript-eslint-member-ordering’-‘error’" class="headerlink" title="28.@typescript-eslint/member-ordering’: ‘error’,"></a>28.@typescript-eslint/member-ordering’: ‘error’,</h2><p>按照提示改变顺序即可</p>
+<h2 id="29-indent’-‘error’"><a href="#29-indent’-‘error’" class="headerlink" title="29.indent’: ‘error’,"></a>29.indent’: ‘error’,</h2><p>这里多是空格或者缩进的错误，找到报错位置按照报错信息改动即可</p>
+<h2 id="30-no-console’"><a href="#30-no-console’" class="headerlink" title="30.no-console’"></a>30.no-console’</h2><p>这个容易，遇到console删除就好，但是要注意整个逻辑有没有变动</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//before</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;any&#x27;</span>)<br><span class="hljs-comment">//after</span><br>debugLog(e || <span class="hljs-string">&#x27;&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+
+    
+    <a href="/2021/06/07/isNaN%E9%97%AE%E9%A2%98/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>isNaN问题</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+	<div class="Copyright">
+		©2021 By XING JIA QI. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a>
+        
+
+	</div>
+	<div class="num">
+		本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/2513483494/">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+
+
+<div id="vcomments" class="comments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'ILzDplESxkz91zaM1QP2wGHE-gzGzoHsz',
+            appKey: 'f0TIia4kJVeN4IrpdShFn1jq'
+        })
+    </script>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+	</body>
+
+</html>

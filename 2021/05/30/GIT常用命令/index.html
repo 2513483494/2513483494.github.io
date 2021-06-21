@@ -305,6 +305,7 @@
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="1-修改commit信息"><a href="#1-修改commit信息" class="headerlink" title="1.修改commit信息"></a>1.修改commit信息</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">git commit --amend<br></code></pre></td></tr></table></figure>
 <p>此时会进入vim编辑界面，按i编辑好commit信息，按esc再按：wq，就好啦。</p>
 <h3 id="2-删除原仓库的部分文件"><a href="#2-删除原仓库的部分文件" class="headerlink" title="2.删除原仓库的部分文件"></a>2.删除原仓库的部分文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript">git pull origin master<span class="hljs-comment">//拉取远程代码</span><br>ls<span class="hljs-comment">//列出文件名</span><br>git rm -r --cached <span class="hljs-string">&#x27;文件名&#x27;</span><br>git push origin<br></code></pre></td></tr></table></figure>
+<h3 id="3-查看提交信息"><a href="#3-查看提交信息" class="headerlink" title="3. 查看提交信息"></a>3. 查看提交信息</h3><p>git log可以查看每次的提交记录<br>git show ID可以查看每次提交的修改内容</p>
 
     </div>
 </div>

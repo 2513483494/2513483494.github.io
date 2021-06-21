@@ -3,15 +3,15 @@
 
 	<head>
 		
-<title>hooks的几处经验之谈，踩坑-UESTC</title>
+<title>antd默认样式修改方法-UESTC</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/7.jpeg">
 
 
-<meta name="keywords" content="前端,react,hooks,">
-<meta name="description" content="hooks踩过的坑！">
+<meta name="keywords" content="前端,antd,默认样式,">
+<meta name="description" content="修改antd默认样式">
 
 
 <script src="/js/jquery.min.js"></script>
@@ -262,13 +262,13 @@
             
             <li><a href="/tags/前端">前端</a></li>
             
-            <li><a href="/tags/react">react</a></li>
+            <li><a href="/tags/antd">antd</a></li>
             
-            <li><a href="/tags/hooks">hooks</a></li>
+            <li><a href="/tags/默认样式">默认样式</a></li>
             
             
         </ul>
-        <h1>hooks的几处经验之谈，踩坑</h1>
+        <h1>antd默认样式修改方法</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -280,23 +280,26 @@
                 </svg>
                 
                 <span> <a href="">XING JIA QI</a></span>
-                <p>2021-06-12 15:28:11</p>
+                <p>2021-06-21 20:56:37</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="使用hooks踩过的坑"><a href="#使用hooks踩过的坑" class="headerlink" title="使用hooks踩过的坑"></a>使用hooks踩过的坑</h1><h2 id="什么时候重新渲染页面？"><a href="#什么时候重新渲染页面？" class="headerlink" title="什么时候重新渲染页面？"></a>什么时候重新渲染页面？</h2><h3 id="状态是基础数据类型"><a href="#状态是基础数据类型" class="headerlink" title="状态是基础数据类型"></a>状态是基础数据类型</h3><p>用过react的同学应该都知道，状态改变了就会重新渲染啊，好，看下面的情况</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> [update, setUpdate] = useState(<span class="hljs-literal">false</span>);<br>onClick = <span class="hljs-function">() =&gt;</span> update = !update;<span class="hljs-comment">//假设点击触发</span><br></code></pre></td></tr></table></figure>
-<p>此时页面会重新渲染吗？答案是不会<br>但是update状态会改变吗？答案是会<br>再看一个例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> [update, setUpdate] = useState(<span class="hljs-literal">false</span>);<br>onClick = <span class="hljs-function">() =&gt;</span> setUpdate(update);<span class="hljs-comment">//假设点击触发</span><br></code></pre></td></tr></table></figure>
-<p>点击按钮后页面会重新渲染吗？答案是不会<br>但是update状态会改变吗？答案是不会</p>
-<p>综上，结论是只有用setState改变状态才会触发重新渲染。</p>
-<h3 id="状态是数组对象"><a href="#状态是数组对象" class="headerlink" title="状态是数组对象"></a>状态是数组对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> [data, setData] = useState([&#123;<span class="hljs-attr">name</span>: jecy&#125;]);<br>...<br>data.map(<span class="hljs-function">(<span class="hljs-params">item</span>)=&gt;</span>&#123;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;item.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span> = <span class="hljs-string">()</span> =&gt;</span> item.name=&#x27;tom&#x27;&gt;enter<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&#125;)<br>...<br></code></pre></td></tr></table></figure>
-<p>假设我们的代码是这个逻辑，当我点击按钮页面是否会重新渲染呢？<br>答案是不会，你可能想说，name不是变成tom了吗，不会是因为没用setData改变状态<br>那看这个例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> [data, setData] = useState([&#123;<span class="hljs-attr">name</span>: jecy&#125;]);<br>...<br>data.map(<span class="hljs-function">(<span class="hljs-params">item</span>)=&gt;</span>&#123;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;item.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span> = <span class="hljs-string">()</span> =&gt;</span> setData(()=&gt;&#123;</span><br><span class="xml">        data[0].name=&#x27;tom&#x27;;</span><br><span class="xml">        return data;</span><br><span class="xml">&#125;)&gt;enter<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&#125;)<br>...<br></code></pre></td></tr></table></figure>
-<p>这次满足了条件，用setState的方法改变了状态，点击按钮会不会重新渲染呢？<br>答案是也不会，因为hooks不会检查引用类型内部数据是否发生变化，只要数组地址没有变，hooks就认为状态没变</p>
+        <h1 id="修改antd默认样式的方法"><a href="#修改antd默认样式的方法" class="headerlink" title="修改antd默认样式的方法"></a>修改antd默认样式的方法</h1><h2 id="问题的出现与解决"><a href="#问题的出现与解决" class="headerlink" title="问题的出现与解决"></a>问题的出现与解决</h2><p>在博主还是小白的时候，觉得antd太好用了，组件多，效果好，真棒！<br>随着实习的进行，发现antd好用是好用，但是也有很多缺点，就比如，我想要antd的Button宽度和父组件一样宽，按照我之前的想法，这样就好了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//js</span><br>&lt;Button type=<span class="hljs-string">&#x27;primary&#x27;</span> className=<span class="hljs-string">&#x27;button&#x27;</span>&gt;<br><span class="hljs-comment">//less</span><br>.button&#123;<br>    <span class="hljs-attr">width</span>: 200px;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>因为项目是热更新的嘛，页面上按钮长度没有发生变化，还抱有希望的我点了刷新，按钮还没变，完蛋，没用。赶紧google一下如何修改默认样式，在浏览器中右键检查，选中要修改样式的元素，看看它的类名是什么，比如我要修改的按钮，类名有一个是ant-btn，按照查到的方法这样改就可以，OK，放到less文件中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">:<span class="hljs-function"><span class="hljs-title">global</span>(<span class="hljs-params">.ant-btn</span>)</span> &#123;<br>  background-color: red;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>好家伙，页面上的按钮全都变红了，这可不是我想要的，继续查，发现原来需要在global外面加上一层限制的类名，比如这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//js</span><br>&lt;Button<br>    type=<span class="hljs-string">&quot;primary&quot;</span><br>    htmlType=<span class="hljs-string">&quot;submit&quot;</span><br>    className=&#123;styles.button&#125;<br>&gt;创建&lt;/Button&gt;<br><span class="hljs-comment">//less</span><br>.button&#123;<br>  :<span class="hljs-built_in">global</span><br>  .ant-btn&#123;<br>    <span class="hljs-attr">padding</span>: <span class="hljs-number">0</span> 215px;<br>    margin-top: 20px;<br>    background-color: #0A7AFF;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>嗯？还是没有生效，为什么呢，在这里博主苦思冥想了好久，最后才发现原来是要在外层加上一个标签，类名给这个标签加上才可以，比如这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//js</span><br>&lt;div className=&#123;styles.button&#125;&gt;<span class="hljs-comment">//类名给div</span><br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span></span></span><br><span class="hljs-tag"><span class="xml">        <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span></span></span><br><span class="hljs-tag"><span class="xml">        <span class="hljs-attr">htmlType</span>=<span class="hljs-string">&quot;submit&quot;</span></span></span><br><span class="hljs-tag"><span class="xml">    &gt;</span>创建<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span><br>&lt;/div&gt;<br><span class="hljs-comment">//less</span><br>.button&#123;<br>  :<span class="hljs-built_in">global</span><br>  .ant-btn&#123;<br>    <span class="hljs-attr">padding</span>: <span class="hljs-number">0</span> 215px;<br>    margin-top: 20px;<br>    background-color: #0A7AFF;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这样就成功的修改了antd的Button样式。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>antd的默认样式修改还是挺容易的，但是博主没有经验还是踩了不少坑，这就总结出来。<br>1、 在页面中检查选中要改变样式的元素，找到元素的类名<br>2、 在要改变元素的外层嵌套上一个div(别的也行)，加上自定义的类名。<br>3、 less文件用global修改默认样式<br>4、 举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//js</span><br>&lt;div className=&#123;styles.button&#125;&gt;<span class="hljs-comment">//类名给div</span><br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span></span></span><br><span class="hljs-tag"><span class="xml">        <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span></span></span><br><span class="hljs-tag"><span class="xml">        <span class="hljs-attr">htmlType</span>=<span class="hljs-string">&quot;submit&quot;</span></span></span><br><span class="hljs-tag"><span class="xml">    &gt;</span>创建<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span><br>&lt;/div&gt;<br><span class="hljs-comment">//less</span><br>.button&#123;<br>  :<span class="hljs-built_in">global</span><br>  .ant-btn&#123;<br>    <span class="hljs-attr">padding</span>: <span class="hljs-number">0</span> 215px;<br>    margin-top: 20px;<br>    background-color: #0A7AFF;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">.red &#123;<br>  :<span class="hljs-function"><span class="hljs-title">global</span>(<span class="hljs-params">.ant-input</span>)</span> &#123;<br>    <span class="hljs-attr">color</span>: #ff3a30;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
     </div>
 </div>
@@ -326,19 +329,12 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2021/06/21/antd%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95/">
-        <div class="last">
-            <span>上一篇</span>
-            <p>antd默认样式修改方法</p>
-        </div>
-    </a>
-    
 
     
-    <a href="/2021/06/10/Eslint%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+    <a href="/2021/06/12/hooks%E7%9A%84%E5%87%A0%E5%A4%84%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/">
         <div class="next">
             <span>下一篇</span>
-            <p>Eslint问题解决方案</p>
+            <p>hooks的几处经验之谈，踩坑</p>
         </div>
     </a>
     

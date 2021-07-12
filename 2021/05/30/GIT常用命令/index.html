@@ -313,7 +313,7 @@
 <h3 id="4-暂存"><a href="#4-暂存" class="headerlink" title="4.暂存"></a>4.暂存</h3><p>背景：你的分支开发了三四天突然遇到紧急任务需要修改另一个分支的代码，怎么办，博主最开始的想法是，先提交本地代码，然后再切换分支，可是这样就会产生无用的提交记录，怎么样可以更优雅的处理这种情况呢，用stash暂存！</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">git stash<span class="hljs-comment">//暂存起来</span><br>git stash apply<span class="hljs-comment">//恢复</span><br></code></pre></td></tr></table></figure>
 <p>需要说明，git stash是本地的，不会push到远程仓库，建议使用<br><code>git stash save &quot;test-cmd-stash&quot;</code>代替添加注释<br><code>git stash list</code>查看当前所有的暂存<br>用<code>git stash apply 暂存名</code>可以恢复成想要的暂存</p>
-<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>用途一：合并commit<br>待更新在学习</p>
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>用途一：合并commit<br>git log查看分支的commit信息，比如想合并最新三次提交，用<code>git rebase -i HEAD~3</code>指令，会进入编辑界面<br><img src="1.webp" alt="git" title="rebase"><br>只看前三行，简单的合并只需要把后两个pick改为s保存就ok，然后会进入编辑commit信息界面<br><img src="2.webp" alt="git" title="rebase"><br>这里只修改<code>add b.php``add c.php``add d.php</code>这三个部分就好，不修改也行，保存退出在执行git log就会发现三次commit已经合并到一起了，这样的commit是多么的清晰。</p>
 
     </div>
 </div>

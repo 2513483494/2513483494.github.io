@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>http-UESTC</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/7.jpeg">
+
+
+<meta name="keywords" content="前端,HTTP,">
+<meta name="description" content="">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+<!-- Baidu Analytics -->
+<script defer>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?175a1ef42c309512ca85728cd51d4bee";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+	<meta name="generator" content="Hexo 5.4.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/7.jpeg" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										首页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										总计
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友情链接
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于作者
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>XING JIA QI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">总计</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友情链接</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于作者</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/2513483494/">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+
+<div class="header-bg bg-content-img">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/前端">前端</a></li>
+            
+            <li><a href="/tags/HTTP">HTTP</a></li>
+            
+            
+        </ul>
+        <h1>http</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                    <path
+                        d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                        p-id="2902" fill="#ffffff"></path>
+                </svg>
+                
+                <span> <a href="">XING JIA QI</a></span>
+                <p>2021-07-10 11:58:22</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="HTTP协议详解"><a href="#HTTP协议详解" class="headerlink" title="HTTP协议详解"></a>HTTP协议详解</h1><h2 id="一、基本特性"><a href="#一、基本特性" class="headerlink" title="一、基本特性"></a>一、基本特性</h2><ol>
+<li>基础信息：<br>超文本传输协议，应用层，基于TCP/IP的通信协议，默认80端口</li>
+<li>特性：</li>
+<li>1 HTTP 是无连接的： HTTP客户端，即浏览器发出请求后，客户端等待响应。服务器处理该请求并发送回响应，然后客户端断开连接。客户端和服务器仅在当次请求中互相了解，至于上一次是否有连接或者连接的信息是无从得知的。</li>
+<li>2 HTTP是独立于媒体的： 这意味着，只要客户端和服务器都知道如何处理数据内容，任何类型的数据都可以通过HTTP发送。客户端和服务器都需要使用适当的 MIME 类型 指定内容类型。</li>
+<li>3 HTTP是无状态的： 如上所述，HTTP 是无连接的，这是 HTTP 是无状态协议的直接结果。服务器和客户端仅在当前请求期间彼此知道，之后他们俩彼此忘记。由于协议的这种性质，客户端和浏览器都无法在整个网页的不同请求之间保留信息。</li>
+<li>HTTP请求构成</li>
+<li>1 请求行<br>举个例子,谷歌浏览器检查network复制过来的<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">Request URL: https:<span class="hljs-comment">//www.cnblogs.com/ajax/wechatshare/getconfig?url=https%3A%2F%2Fw.cnblogs.com%2Frickiyang%2Fp%2F13138574.html    </span><br>Request <span class="hljs-function"><span class="hljs-keyword">Method</span>:</span> GET<br>Status Code: <span class="hljs-number">200</span> <br>Remote Address: <span class="hljs-number">101.37</span>.<span class="hljs-number">113.127</span>:<span class="hljs-number">443</span><br>Referrer Policy: no-referrer<br></code></pre></td></tr></table></figure></li>
+<li>2 请求头<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-meta">:authority:</span> www.cnblogs.com<br><span class="hljs-meta">:method:</span> GET<br><span class="hljs-meta">:path:</span> /ajax/wechatshare/getconfig?url=https%3A%2F%2Fw.cnblogs.com%2Frickiyang%2Fp%2F13138574.html<br><span class="hljs-meta">:scheme:</span> https<br>accept: application/json, text/javascript, <span class="hljs-strong">*/*</span>; q=0.01<br>accept-encoding: gzip, deflate, br<br>accept-language: zh-CN,zh;q=0.9<br>cache-control: no-cache         //控制缓存，这里是不使用缓存<br>cookie: <span class="hljs-emphasis">_ga=GA1.2.903872557.1617762465; __gads=ID=539c3a3e492284af:T=1617848011:S=ALNI_MZj7lhU_fTAc1DcwwbX1jJpMyo6uQ; UM_distinctid=178f350fa35495-0383aa838dfed7-33687008-1aeaa0-178f350fa369d1; CNZZDATA1264404098=1000513726-1618985257-https%253A%252F%252Fwww.google.com.hk%252F%7C1619659910; .AspNetCore.Antiforgery.b8-pDmTq1XM=CfDJ8L-rpLgFVEJMgssCVvNUAjtoaL8rG8xCwsEHc-XDEA-9RK4dl6lSwYE7Xq9kXMgXKo5xzeThUdP-FsBv7AIUu4hS1UVLV-CQrbiSrVUBGUYt1TfkO8yPGA4EFYwIuU7tOFE0WQxL3S6TpoyFUX4c5lQ; CNZZDATA1260761432=1123216222-1625560293-https%253A%252F%252Fwww.google.com.hk%252F%7C1625560293; _gid=GA1.2.887776284.1625734040 //携带的cookie</span><br><span class="hljs-emphasis">pragma: no-cache</span><br><span class="hljs-emphasis">sec-ch-ua: &quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;91&quot;, &quot;Chromium&quot;;v=&quot;91&quot;</span><br><span class="hljs-emphasis">sec-ch-ua-mobile: ?0</span><br><span class="hljs-emphasis">sec-fetch-dest: empty</span><br><span class="hljs-emphasis">sec-fetch-mode: cors</span><br><span class="hljs-emphasis">sec-fetch-site: same-origin</span><br><span class="hljs-emphasis">user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_</span>7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36<br>x-requested-with: XMLHttpRequest<br></code></pre></td></tr></table></figure></li>
+<li>3 请求体<br>url: <a target="_blank" rel="noopener" href="https://w.cnblogs.com/rickiyang/p/13138574.html">https://w.cnblogs.com/rickiyang/p/13138574.html</a></li>
+<li>4 响应头<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">content</span>-encoding: gzip//编码方式<br><span class="hljs-attribute">content</span>-type: text/html; charset=utf-<span class="hljs-number">8</span>//报文媒体类型<br><span class="hljs-attribute">date</span>: Sat, <span class="hljs-number">10</span> Jul <span class="hljs-number">2021</span> <span class="hljs-number">04</span>:<span class="hljs-number">14</span>:<span class="hljs-number">50</span> GMT<br><span class="hljs-attribute">strict</span>-transport-security: max-age=<span class="hljs-number">2592000</span>; includeSubDomains; preload<br><span class="hljs-attribute">vary</span>: Accept-Encoding<br></code></pre></td></tr></table></figure></li>
+<li>状态码<br>类别    说明<br>1XX    Informational(信息性状态码)<br>2XX    Success(成功状态码)<br>3XX    Redirection(重定向)<br>4XX    Client Error(客户端错误状态码)<br>5XX    Server Error(服务器错误状态码)</li>
+</ol>
+<p>2XX 成功<br><strong>200</strong> ：OK 一切正常，对GET和POST请求的应答文档跟在后面。</p>
+<p>3XX 重定向<br><strong>301</strong> ：Moved Permanently 客户请求的文档在其他地方，新的 URL 在 Location 头中给出，浏览器应该自动地访问新的 URL。<br><strong>302</strong> ：Found 类似于 301，但新的 URL 应该被视为临时性的替代，而不是永久性的。注意，在 HTTP1.0 中对应的状态信息是“Moved Temporatily”。<br>出现该状态代码时，浏览器能够自动访问新的 URL，因此它是一个很有用的状态代码。<br>注意这个状态代码有时候可以和301替换使用。例如，如果浏览器错误地请求 <a target="_blank" rel="noopener" href="http://host/~aaa%EF%BC%88%E7%BC%BA%E5%B0%91%E4%BA%86%E5%90%8E%E9%9D%A2%E7%9A%84%E6%96%9C%E6%9D%A0%EF%BC%89%EF%BC%8C%E6%9C%89%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%94%E5%9B%9E301%EF%BC%8C%E6%9C%89%E7%9A%84%E5%88%99%E8%BF%94%E5%9B%9E302%E3%80%82">http://host/~aaa（缺少了后面的斜杠），有的服务器返回301，有的则返回302。</a><br>严格地说，我们只能假定只有当原来的请求是 GET 时浏览器才会自动重定向。<br><strong>304</strong> ：Not Modified 客户端有缓冲的文档并发出了一个条件性的请求（一般是提供 If-Modified-Since 头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。</p>
+<p>4XX 客户端错误<br><strong>404</strong> ：Not Found 无法找到指定位置的资源。这也是一个常用的应答。</p>
+<p>5XX 服务器端错误<br>500：Internal Server Error 服务器故障。<br>503：Service Unavailable 服务器处于超负载或正在停机维护。</p>
+<p>粗体的状态码比较常见，其余的需要了解。</p>
+<ol start="4">
+<li>HTTP版本发展</li>
+<li>1 0.9—只传输静态页面，只有请求行，返回的只有数据（ASCII码），基本只有HTML文件。</li>
+<li>2 1.0—需要交互、图片、视频、动态生成等<br>特性：<br>HTTP/1.0 版本是一种无状态、无连接的应用层协议。<br>浏览器与服务器每次请求都要建立连接，服务器处理完毕立刻断开连接。即浏览器与服务器之间只保持很短的连接时间。<br>队头阻塞。HTTP/1.0规定下一个请求必须在前一个请求响应到达之后才能发送。即如果前一个请求响应一直不达到那么下一个请求也不会发送，后面的一直被阻塞。</li>
+<li>3 1.1<br>解决了1.0的两个问题—是否可以不用每次都重新建立连接；请求是否可以并行化，不用被阻塞。<br>特性：<br>首先是长连接。HTTP/1.1增加了一个 Connection 字段，通过设置 Keep-Alive 可以保持 HTTP 连接不断开，避免了每次客户端与服务器请求都要重复建立释放建立TCP连接，提高了网络的利用率。如果客户端想关闭 HTTP 连接，可以在请求头中携带 Connection: false来告知服务器关闭请求。<br>其次是 HTTP/1.1支持请求管道化（pipelining）。基于 HTTP/1.1 的长连接，使得请求管线化成为可能。管线化使得请求能够“并行”传输。举个例子来说，假如响应的主体是一个 html 页面，页面中包含了很多 img，这个时候 keep-alive 就起了很大的作用，能够进行“并行”发送多个请求。<br>在HTTP/1.1 中增加 Host 请求头字段。我们可以在一台 WEB 服务器上可以在同一个IP地址和端口号上使用不同的主机名来创建多个虚拟 WEB 站点。<br>HTTP/1.1 还提供了与身份认证、状态管理和 Cache 缓存等机制相关的请求头和响应头。<br>HTTP/1.1 支持断点续传。<br>但实际上并未解决阻塞问题，因为还是按照请求顺序返回数据，仍可能阻塞。</li>
+<li>4 2.0<br>二分帧与多路复用：把请求和响应分成很多二进制编码的帧，在一个TCP链接里复用，重新组装，可以达到并行请求的效果<br>流优先级控制，先请求的优先处理<br>允许服务器在客户端缓存中填充数据，服务器推送<br>头部压缩</li>
+</ol>
+<h2 id="HTTP与HTTPS"><a href="#HTTP与HTTPS" class="headerlink" title="HTTP与HTTPS"></a>HTTP与HTTPS</h2><p>HTTP为明文传输，如果中间有人获取了这个明文那么可能就会有安全事故，所以出现了HTTPS—安全套接字层超文本传输协议<br>为了数据传输的安全，https在http的基础上加入了SSL协议，SSL依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密<br>https协议的主要作用可以分为两种：<br>建议一个信息安全通道，来保证数据传输的安全<br>确定网站的真实性。<br>https是443端口<br>缺点：<br>https协议会使加载时间变得较长点，增加数据开销和功耗</p>
+<p>https过程：（非对称加密）<br>首先客户端通过URL访问服务器建立SSL连接。<br>服务端收到客户端请求后，会将网站支持的证书信息（证书中包含公钥）传送一份给客户端。<br>客户端的服务器开始协商SSL连接的安全等级，也就是信息加密的等级。<br>客户端的浏览器根据双方同意的安全等级，建立会话密钥，然后利用网站的公钥将会话密钥加密，并传送给网站。<br>服务器利用自己的私钥解密出会话密钥。<br>服务器利用会话密钥加密与客户端之间的通信。</p>
+<p>5.总结整个过程：<br>1.服务器向CA机构获取证书（假设这个证书伪造不了），当浏览器首次请求服务器的时候，服务器返回证书给浏览器。（证书包含：公钥+申请者与颁发者的相关信息+签名）<br>2.浏览器得到证书后，开始验证证书的相关信息，证书有效（没过期等）。（验证过程，比较复杂，详见上文）。<br>3.验证完证书后，如果证书有效，客户端是生成一个随机数，然后用证书中的公钥进行加密，加密后，发送给服务器，服务器用私钥进行解密，得到随机数。之后双方便开始用该随机数作为钥匙，对要传递的数据进行加密、解密。</p>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+
+    
+    <a href="/2021/07/09/redux/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>redux</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+	<div class="Copyright">
+		©2021 By XING JIA QI. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a>
+        
+
+	</div>
+	<div class="num">
+		本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/2513483494/">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+
+
+<div id="vcomments" class="comments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'ILzDplESxkz91zaM1QP2wGHE-gzGzoHsz',
+            appKey: 'f0TIia4kJVeN4IrpdShFn1jq'
+        })
+    </script>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+	</body>
+
+</html>

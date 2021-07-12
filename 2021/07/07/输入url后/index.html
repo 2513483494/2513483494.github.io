@@ -318,7 +318,7 @@
 <li>渲染树<br>dom和css树的结合<br>原则：（避免html解析出现的问题）<br>CSS 资源排在 JavaScript 资源前面<br>JS 放在 HTML 最底部，也就是 </body>前<br>另外，如果要改变阻塞模式，可以使用 defer 与 async</li>
 <li>布局和绘制+合并渲染</li>
 <li>布局变化或样式变化会回流和重绘<br>js引擎</li>
-<li>js的执行<br>js是解释型语言，运行时才确定变量类型（ts很好地解决了这个问题），运用JIT（及时编译）技术</li>
+<li>js的执行<br>js是解释型语言，运行时才确定变量类型（ts很好地解决了这个问题），运用JIT（及时编译）技术。<br>从上到下加载，遇到js会等待js下载完然后执行js，再向下进行。也可以用async 异步加载，加载完就执行，async只能加载外部脚本，不能把js写在script标签里。</li>
 </ol>
 
     </div>

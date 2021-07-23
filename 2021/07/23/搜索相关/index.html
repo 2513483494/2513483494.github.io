@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>前端如何生成二维码-UESTC</title>
+<title>搜索相关-UESTC</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/7.jpeg">
 
 
-<meta name="keywords" content="前端,二维码,">
+<meta name="keywords" content="前端,搜索,">
 <meta name="description" content="">
 
 
@@ -262,11 +262,11 @@
             
             <li><a href="/tags/前端">前端</a></li>
             
-            <li><a href="/tags/二维码">二维码</a></li>
+            <li><a href="/tags/搜索">搜索</a></li>
             
             
         </ul>
-        <h1>前端如何生成二维码</h1>
+        <h1>搜索相关</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -278,16 +278,27 @@
                 </svg>
                 
                 <span> <a href="">XING JIA QI</a></span>
-                <p>2021-07-21 16:51:10</p>
+                <p>2021-07-23 16:20:09</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="前端如何生成二维码"><a href="#前端如何生成二维码" class="headerlink" title="前端如何生成二维码"></a>前端如何生成二维码</h1><p>业务需求需要根据输入的url生成相应的二维码，经过一番测试，寻找到了解决办法<br><code>yarn add qrcode.react</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> QRCode <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;qrcode.react&#x27;</span>;<br>...<br><span class="hljs-comment">//下面就是生成的二维码图片，imageSettings不需要的话可以删掉</span><br>&lt;QRCode<br>    value=<span class="hljs-string">&#x27;https://www.baidu.com/&#x27;</span><span class="hljs-comment">// 生成二维码的内容</span><br>    size=&#123;<span class="hljs-number">300</span>&#125; <span class="hljs-comment">// 二维码的大小</span><br>    fgColor=<span class="hljs-string">&quot;#000000&quot;</span> <span class="hljs-comment">// 二维码的颜色</span><br>    imageSettings=&#123;&#123; <span class="hljs-comment">// 中间有图片logo</span><br>      <span class="hljs-attr">src</span>: logo,<br>      <span class="hljs-attr">height</span>: <span class="hljs-number">60</span>,<br>      <span class="hljs-attr">width</span>: <span class="hljs-number">60</span>,<br>      <span class="hljs-attr">excavate</span>: <span class="hljs-literal">true</span><br>    &#125;&#125;<br>  /&gt;<br>...<br></code></pre></td></tr></table></figure>
-<p>原理就是利用了canvas画布绘制，具体的可以去看源码。<br>参考：<a href="'https://juejin.cn/post/6844904012660080654'">二维码生成</a></p>
+        <h1 id="搜索相关问题"><a href="#搜索相关问题" class="headerlink" title="搜索相关问题"></a>搜索相关问题</h1><p>背景：最近写项目时，原以为的按条件搜索发现了很多问题，比如没输入搜索条件，输入部分搜索条件，如何实时显示搜索数据等</p>
+<h2 id="搜索条件解决"><a href="#搜索条件解决" class="headerlink" title="搜索条件解决"></a>搜索条件解决</h2><p><img src="1.png" alt="s"><br>搜索条件如图，最开始我想的是，每次搜索用filter筛选出来数据都匹配的数据就好了，但是搜索条件不一定有，或者只有一部分，这样的话，有的搜索条件取出来的值就是undefined，和哪一项都不会成功匹配也就是搜索不出来数据。<br>解决：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> finds = products.filter(<span class="hljs-function">(<span class="hljs-params">p: any</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> c1 = name || p.name<br>    <span class="hljs-keyword">let</span> c2 = others ? (others.indexOf(<span class="hljs-string">&#x27;onsale&#x27;</span>) === -<span class="hljs-number">1</span> ? p.status : <span class="hljs-number">1</span>) : p.status<br>    <span class="hljs-keyword">let</span> c3 = brand || [p.brand]<br>    <span class="hljs-keyword">return</span> p.name.indexOf(c1) !== -<span class="hljs-number">1</span> &amp;&amp; c2 === p.status &amp;&amp; c3.indexOf(p.brand) !== -<span class="hljs-number">1</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>如果是undefined就和数据相等就好了，我这里只展示了对字符串和数组进行的搜索。</p>
+<h2 id="输入实时搜索"><a href="#输入实时搜索" class="headerlink" title="输入实时搜索"></a>输入实时搜索</h2><p>我想在输入商品名称时进行实时匹配，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;Input placeholder=<span class="hljs-string">&#x27;可输入商品名称查询&#x27;</span> onChange=&#123;changeName&#125; /&gt;<br>...<br><span class="hljs-keyword">const</span> changeName = <span class="hljs-function">(<span class="hljs-params">e: any</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> proName = e.target.value<br>    <span class="hljs-keyword">const</span> finds = products.filter(<span class="hljs-function">(<span class="hljs-params">p: any</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">return</span> p.name.includes(proName)<br>    &#125;)<br>    setFindpros(finds)<br>    props.onChange &amp;&amp; props.onChange(finds)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>每次输入改变时就进行一次查询，可是在我以为成功了的时候检测到了这样的问题，用中文输入法输入字符但是还没有点击文字时，value是还没有确定的那部分字符串，比如，想输入<em>娃哈哈</em><br><img src="2.png" alt="s"><br>但是此时搜索的确实wahah，这样就搜索不出来数据，怎么办呢？<br>解决：<br>加上判断，只有在输入框中没有英文字符时才进行搜索</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> changeName = <span class="hljs-function">(<span class="hljs-params">e: any</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> proName = e.target.value<br>    <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/[a-zA-Z]/</span><br>    <span class="hljs-keyword">if</span> (!re.test(proName)) &#123;<br>        <span class="hljs-keyword">const</span> finds = products.filter(<span class="hljs-function">(<span class="hljs-params">p: any</span>) =&gt;</span> &#123;<br>            <span class="hljs-keyword">return</span> p.name.includes(proName)<br>        &#125;)<br>        setFindpros(finds)<br>        props.onChange &amp;&amp; props.onChange(finds)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>更改后的代码如上，这样就不会出现输入一个汉字出现商品，打字过程商品消失的现象了。<br>再优化一下，用户的输入可能很快很频繁，虽然打字挺慢的，但是要是不停地输入数字，删除数字也会造成不小的性能损失，所以这里我们加上debounce进行优化。</p>
+<h2 id="Input防抖问题"><a href="#Input防抖问题" class="headerlink" title="Input防抖问题"></a>Input防抖问题</h2><p>在直接给Input的onChange上加防抖事件，是不生效的，查了一下资料，因为react采用的是合成事件的机制。<br>事件处理程序通过 合成事件（SyntheticEvent）的实例传递，SyntheticEvent 是浏览器原生事件跨浏览器的封装。SyntheticEvent 和浏览器原生事件一样有 stopPropagation()、preventDefault() 接口，而且这些接口夸浏览器兼容。<br>SyntheticEvent 是池化的. 这意味着 SyntheticEvent 对象将会被重用，并且所有的属性都会在事件回调被调用后被 nullified。 这是因为性能的原因。 因此,你不能异步的访问事件。</p>
+<p>所以要拆分函数，这样处理才可以</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;Input placeholder=<span class="hljs-string">&#x27;可输入商品名称查询&#x27;</span> onChange=&#123;changeName&#125; /&gt;<br>...<br><span class="hljs-keyword">const</span> debounceSearchName = <span class="hljs-function">(<span class="hljs-params">name: string</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/[a-zA-Z]/</span><br>    <span class="hljs-built_in">console</span>.log(name)<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;debounce&#x27;</span>)<br>    <span class="hljs-keyword">if</span> (!re.test(name)) &#123;<br>        <span class="hljs-keyword">const</span> finds = products.filter(<span class="hljs-function">(<span class="hljs-params">p: any</span>) =&gt;</span> &#123;<br>            <span class="hljs-keyword">return</span> p.name.includes(name)<br>        &#125;)<br>        props.onChange &amp;&amp; props.onChange(finds)<br>    &#125;<br>&#125;<br><span class="hljs-keyword">const</span> changeName = debounce(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>    debounceSearchName(e.target.value)<br>&#125;, <span class="hljs-number">300</span>)<br></code></pre></td></tr></table></figure>
+
+<p>大功告成，实现了搜索功能，通过输入商品名称的实时搜索，加上了防抖，小小的得意。</p>
 
     </div>
 </div>
@@ -317,19 +328,12 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2021/07/23/%E6%90%9C%E7%B4%A2%E7%9B%B8%E5%85%B3/">
-        <div class="last">
-            <span>上一篇</span>
-            <p>搜索相关</p>
-        </div>
-    </a>
-    
 
     
-    <a href="/2021/07/18/%E8%87%AA%E5%AE%9A%E4%B9%89hook-useQuery%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
+    <a href="/2021/07/21/%E5%89%8D%E7%AB%AF%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/">
         <div class="next">
             <span>下一篇</span>
-            <p>自定义hook-useQuery简单实现</p>
+            <p>前端如何生成二维码</p>
         </div>
     </a>
     
